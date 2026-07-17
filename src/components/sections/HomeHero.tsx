@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { CursorGlow } from "@/components/animations/CursorGlow";
@@ -27,13 +27,6 @@ export function HomeHero() {
 
       <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(26rem,0.85fr)]">
         <div className="relative z-10" data-hero-layer="foreground">
-          <FadeIn>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--border-on-dark)] bg-brand-offwhite/[0.03] px-4 py-2 text-sm font-semibold text-brand-cyan">
-              <Sparkles aria-hidden size={16} />
-              Premium web experiences for ambitious teams
-            </div>
-          </FadeIn>
-
           <TextReveal
             as="h1"
             className="max-w-5xl font-heading text-5xl font-semibold leading-[1.05] tracking-[-0.02em] text-brand-offwhite sm:text-6xl lg:text-[5.8rem]"
@@ -69,14 +62,8 @@ export function HomeHero() {
             ref={glowRef}
           >
             <CursorGlow className="bg-brand-violet/15" containerRef={glowRef} />
-            <div className="absolute inset-x-6 top-6 z-10 flex items-center justify-between rounded-full border border-[color:var(--border-on-dark)] bg-brand-charcoal/80 px-4 py-3 backdrop-blur-xl">
-              <span className="font-heading text-xs font-semibold uppercase tracking-[0.08em] text-brand-cyan">
-                Live Craft Preview
-              </span>
-              <span className="h-2 w-2 rounded-full bg-brand-cyan shadow-[0_0_18px_rgba(34,211,238,0.85)]" />
-            </div>
 
-            <div className="absolute -right-14 top-24 w-[82%] overflow-hidden rounded-2xl border border-[color:var(--border-on-dark)] bg-brand-charcoal shadow-[0_24px_80px_rgba(0,0,0,0.42)]">
+            <div className="absolute -right-14 top-16 w-[82%] overflow-hidden rounded-2xl border border-[color:var(--border-on-dark)] bg-brand-charcoal shadow-[0_24px_80px_rgba(0,0,0,0.42)]">
               <Image
                 alt="Vantar product website screenshot"
                 className="h-auto w-full"
