@@ -61,6 +61,13 @@ SplitType text reveals, and count-up effects. Framer Motion is reserved for comp
 micro-interactions such as fade reveals, magnetic CTAs, and tilt cards. Touch devices and
 `prefers-reduced-motion: reduce` disable pointer-reactive and heavy scroll-linked effects.
 
+## Homepage Hero
+
+Phase 4 replaces the temporary homepage placeholder with `HomeHero`. The hero uses the Phase 3
+motion primitives for the headline reveal, scroll-scrubbed layered movement, cursor glow, and
+magnetic primary CTA. Product screenshots are copied into `public/work/` so they can be rendered
+with Next Image.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
