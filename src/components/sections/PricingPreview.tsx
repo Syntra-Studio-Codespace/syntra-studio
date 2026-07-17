@@ -37,9 +37,7 @@ export function PricingPreview() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {previewTiers.map((tier, index) => (
             <FadeIn delay={index * 0.06} key={`${tier.category}-${tier.name}`}>
-              <div className="[&_*]:border-[color:var(--border-on-light)] [&_article]:bg-brand-charcoal">
-                <PricingCard tier={tier} />
-              </div>
+              <PricingCard tier={tier} tone="light" />
             </FadeIn>
           ))}
         </div>
