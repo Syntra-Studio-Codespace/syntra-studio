@@ -68,6 +68,13 @@ motion primitives for the headline reveal, scroll-scrubbed layered movement, cur
 magnetic primary CTA. Product screenshots are copied into `public/work/` so they can be rendered
 with Next Image.
 
+## Services Section
+
+Phase 5 adds `src/data/services.ts` and the homepage `HomeServices` section. Service cards link to
+future service detail routes but do not create those routes yet. The NGO card uses a visible
+`NGO Rate` badge and 20% discount language from the pricing source while keeping the quality
+positioning equal to the business website service.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
