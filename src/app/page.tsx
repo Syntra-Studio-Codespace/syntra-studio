@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main id="main-content" className="min-h-screen px-6 py-24 sm:px-10 lg:px-16">
-      <section className="mx-auto grid min-h-[calc(100vh-12rem)] max-w-7xl content-center gap-8">
+    <main id="main-content" className="min-h-screen px-6 pb-24 pt-32 sm:px-10 lg:px-16">
+      <section className="mx-auto grid min-h-[calc(100vh-14rem)] max-w-7xl content-center gap-8">
         <p className="font-heading text-sm font-semibold uppercase tracking-[0.08em] text-brand-cyan">
           Syntra.studio
         </p>

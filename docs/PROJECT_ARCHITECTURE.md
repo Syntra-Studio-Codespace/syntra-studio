@@ -12,6 +12,7 @@ for interactivity, animation, forms, or browser-only behavior.
 - TypeScript
 - React
 - Tailwind CSS
+- Lucide React
 - ESLint
 - Prettier
 
@@ -37,6 +38,12 @@ data, hook, library, and type folders as they become necessary.
 
 Design tokens are defined in `src/styles/tokens.css` and mirror `DESIGN.md`. Tailwind extends the
 same brand palette and breakpoint values so utilities stay aligned with the design system.
+
+## Global Layout
+
+Phase 2 adds the shared header, footer, button, and logo components. The header is a client
+component because it manages scroll state, active route state, mobile menu state, Escape-key close
+behavior, focus placement, and body scroll lock while the mobile menu is open.
 
 ## Accessibility Baseline
 
