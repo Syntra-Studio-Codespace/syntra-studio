@@ -1,0 +1,24 @@
+:root {
+  --brand-indigo: #3b2fd4;
+  --brand-cyan: #22d3ee;
+  --brand-charcoal: #0f0f17;
+  --brand-offwhite: #f7f7fb;
+  --brand-violet: #8b5cf6;
+
+  --surface-dark: var(--brand-charcoal);
+  --surface-dark-raised: #16161f;
+  --surface-light: var(--brand-offwhite);
+  --surface-light-raised: #ffffff;
+
+  --text-on-dark-primary: var(--brand-offwhite);
+  --text-on-dark-secondary: rgba(247, 247, 251, 0.64);
+  --text-on-light-primary: var(--brand-charcoal);
+  --text-on-light-secondary: rgba(15, 15, 23, 0.64);
+
+  --border-on-dark: rgba(247, 247, 251, 0.1);
+  --border-on-light: rgba(15, 15, 23, 0.08);
+
+  --font-heading: "Geist", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --focus-ring: var(--brand-cyan);
+}
