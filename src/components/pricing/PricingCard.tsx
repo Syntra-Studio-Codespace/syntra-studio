@@ -89,14 +89,16 @@ export function PricingCard({ tier }: PricingCardProps) {
         </p>
       ) : null}
 
-      <Button
-        className="mt-auto w-full translate-y-0 pt-8"
-        href={tier.ctaUrl}
-        variant={tier.highlighted ? "primary" : "secondary"}
-      >
-        {tier.ctaLabel}
-        <ArrowRight aria-hidden size={16} />
-      </Button>
+      <div className="mt-auto pt-8">
+        <Button
+          className="w-full"
+          href={tier.ctaUrl}
+          variant={tier.highlighted ? "primary" : "secondary"}
+        >
+          {tier.ctaLabel}
+          <ArrowRight aria-hidden size={16} />
+        </Button>
+      </div>
     </article>
   );
 }
