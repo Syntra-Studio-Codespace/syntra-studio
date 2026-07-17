@@ -3,6 +3,7 @@ import { Geist, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScrollProvider } from "@/components/animations/SmoothScrollProvider";
+import { CurrencyProvider } from "@/components/currency/CurrencyProvider";
 import "./globals.css";
 
 const geist = Geist({
@@ -36,11 +37,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
-        <SmoothScrollProvider>
-          <Header />
-          {children}
-          <Footer />
-        </SmoothScrollProvider>
+        <CurrencyProvider>
+          <SmoothScrollProvider>
+            <Header />
+            {children}
+            <Footer />
+          </SmoothScrollProvider>
+        </CurrencyProvider>
       </body>
     </html>
   );

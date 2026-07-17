@@ -75,6 +75,14 @@ future service detail routes but do not create those routes yet. The NGO card us
 `NGO Rate` badge and 20% discount language from the pricing source while keeping the quality
 positioning equal to the business website service.
 
+## Pricing And Payments
+
+Phase 6 adds Zod-validated pricing data in `src/data/pricing-tiers.ts`, payment-method data,
+homepage pricing preview, the `/pricing` route, currency context, manual currency switcher, and
+client-side local-currency estimates. USD remains canonical. The currency provider uses the no-key
+ExchangeRate-API open endpoint and falls back gracefully when rates are unavailable. Bank transfer
+details remain a visible `CONTENT TO BE PROVIDED` placeholder.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.

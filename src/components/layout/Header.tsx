@@ -9,6 +9,7 @@ import { siteSettings } from "@/data/site-settings";
 import { cn } from "@/lib/utils/cn";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
+import { CurrencySwitcher } from "@/components/currency/CurrencySwitcher";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") {
@@ -101,7 +102,8 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <CurrencySwitcher />
           <Button href={siteSettings.startProjectHref}>Start a Project</Button>
         </div>
 
@@ -150,6 +152,9 @@ export function Header() {
           </div>
 
           <div className="mt-auto pt-8">
+            <div className="mb-4">
+              <CurrencySwitcher />
+            </div>
             <Button className="w-full" href={siteSettings.startProjectHref} size="large">
               Start a Project
             </Button>
