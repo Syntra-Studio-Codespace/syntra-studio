@@ -13,10 +13,15 @@ for interactivity, animation, forms, or browser-only behavior.
 - React
 - Tailwind CSS
 - Lucide React
+- GSAP and ScrollTrigger
+- Lenis
+- Framer Motion
+- SplitType
 - ESLint
 - Prettier
 
-Animation libraries are intentionally deferred until Phase 3.
+Animation libraries are introduced in Phase 3 and scoped to reusable primitives rather than page-wide
+client components.
 
 ## Folder Structure
 
@@ -44,6 +49,17 @@ same brand palette and breakpoint values so utilities stay aligned with the desi
 Phase 2 adds the shared header, footer, button, and logo components. The header is a client
 component because it manages scroll state, active route state, mobile menu state, Escape-key close
 behavior, focus placement, and body scroll lock while the mobile menu is open.
+
+## Animation Architecture
+
+Phase 3 adds shared motion tokens, GSAP registration, Lenis smooth-scroll integration, reduced-motion
+and touch-device hooks, pointer-position tracking, and reusable primitives under
+`src/components/animations/`.
+
+GSAP and ScrollTrigger are reserved for scroll-linked timelines, pinned sections, horizontal scroll,
+SplitType text reveals, and count-up effects. Framer Motion is reserved for component-level
+micro-interactions such as fade reveals, magnetic CTAs, and tilt cards. Touch devices and
+`prefers-reduced-motion: reduce` disable pointer-reactive and heavy scroll-linked effects.
 
 ## Accessibility Baseline
 

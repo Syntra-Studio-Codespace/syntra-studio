@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SmoothScrollProvider } from "@/components/animations/SmoothScrollProvider";
 import "./globals.css";
 
 const geist = Geist({
@@ -35,9 +36,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
-        <Header />
-        {children}
-        <Footer />
+        <SmoothScrollProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
