@@ -6,7 +6,6 @@ type PriceDisplayProps = {
   price: string;
   billingType: "one-time" | "monthly" | "project-based";
   className?: string;
-  tone?: "dark" | "light";
 };
 
 function parseUsdAmount(price: string) {
@@ -34,30 +33,29 @@ function billingLabel(billingType: PriceDisplayProps["billingType"]) {
   return "one-time";
 }
 
-export function PriceDisplay({ price, billingType, className, tone = "dark" }: PriceDisplayProps) {
+export function PriceDisplay({ price, billingType, className }: PriceDisplayProps) {
   const { currency, rates, status } = useCurrency();
   const amount = parseUsdAmount(price);
   const rate = rates[currency];
   const canConvert = amount !== null && currency !== "USD" && rate;
-  const primaryText = tone === "light" ? "text-brand-charcoal" : "text-brand-offwhite";
-  const secondaryText =
-    tone === "light"
-      ? "text-[color:var(--text-on-light-secondary)]"
-      : "text-[color:var(--text-on-dark-secondary)]";
 
   return (
     <div className={className}>
-      <p className={`font-heading text-4xl font-semibold tracking-[-0.01em] ${primaryText}`}>
+      <p className="font-heading text-4xl font-semibold tracking-[-0.01em] text-brand-offwhite">
         {price}
       </p>
-      <p className={`mt-1 text-sm ${secondaryText}`}>USD canonical - {billingLabel(billingType)}</p>
+      <p className="mt-1 text-sm text-[color:var(--text-on-dark-secondary)]">
+        USD canonical - {billingLabel(billingType)}
+      </p>
       {canConvert ? (
         <p className="mt-3 text-sm font-semibold text-brand-cyan">
           Approx. {formatCurrency(amount * rate, currency)}
         </p>
       ) : null}
       {amount !== null && currency !== "USD" && status === "error" ? (
-        <p className={`mt-3 text-sm ${secondaryText}`}>Local estimate unavailable.</p>
+        <p className="mt-3 text-sm text-[color:var(--text-on-dark-secondary)]">
+          Local estimate unavailable.
+        </p>
       ) : null}
     </div>
   );

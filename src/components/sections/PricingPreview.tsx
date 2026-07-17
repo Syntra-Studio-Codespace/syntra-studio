@@ -10,11 +10,11 @@ const previewTiers = pricingTiers
 
 export function PricingPreview() {
   return (
-    <section className="bg-brand-offwhite px-6 py-24 text-brand-charcoal sm:px-10 lg:px-16 lg:py-32">
+    <section className="bg-brand-charcoal px-6 py-24 text-brand-offwhite sm:px-10 lg:px-16 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[0.75fr_1fr] lg:items-end">
           <FadeIn>
-            <p className="font-heading text-sm font-semibold uppercase tracking-[0.08em] text-brand-indigo">
+            <p className="font-heading text-sm font-semibold uppercase tracking-[0.08em] text-brand-cyan">
               Pricing Preview
             </p>
             <h2 className="mt-4 max-w-3xl font-heading text-4xl font-semibold leading-[1.08] tracking-[-0.01em] sm:text-5xl">
@@ -22,11 +22,11 @@ export function PricingPreview() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <div className="rounded-card border border-[color:var(--border-on-light)] bg-white p-6 shadow-light-card">
-              <p className="text-base leading-7 text-[color:var(--text-on-light-secondary)]">
+            <div className="rounded-card border border-[color:var(--border-on-dark)] bg-[color:var(--surface-dark-raised)] p-6 shadow-[0_0_48px_rgba(34,211,238,0.06)]">
+              <p className="text-base leading-7 text-[color:var(--text-on-dark-secondary)]">
                 {globalPricingNotes.bundleDiscount} {globalPricingNotes.quoteValidity}
               </p>
-              <Button className="mt-5" href="/pricing" variant="dark">
+              <Button className="mt-5" href="/pricing" variant="primary">
                 View full pricing
                 <ArrowRight aria-hidden size={16} />
               </Button>
@@ -37,7 +37,7 @@ export function PricingPreview() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {previewTiers.map((tier, index) => (
             <FadeIn delay={index * 0.06} key={`${tier.category}-${tier.name}`}>
-              <PricingCard tier={tier} tone="light" />
+              <PricingCard tier={tier} />
             </FadeIn>
           ))}
         </div>
