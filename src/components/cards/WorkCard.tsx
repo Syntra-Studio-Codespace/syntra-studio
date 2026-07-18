@@ -15,7 +15,7 @@ export function WorkCard({ work, priority = false, variant = "default" }: WorkCa
     <article
       className={cn(
         "group h-full overflow-hidden rounded-card border border-[color:var(--border-on-dark)] bg-[color:var(--surface-dark-raised)] transition-[border-color,box-shadow] duration-200 hover:border-brand-cyan/45 hover:shadow-[0_0_52px_rgba(34,211,238,0.08)]",
-        variant === "featured" && "lg:grid lg:grid-cols-[1.08fr_0.92fr] lg:items-stretch",
+        variant === "featured" && "flex flex-col",
       )}
     >
       <Link
@@ -23,17 +23,14 @@ export function WorkCard({ work, priority = false, variant = "default" }: WorkCa
         className={cn(
           "block overflow-hidden bg-brand-charcoal",
           variant === "featured"
-            ? "aspect-[16/11] bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.08),transparent_26rem),#0f0f17] p-3 lg:aspect-auto lg:p-4"
+            ? "aspect-[16/10] bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.08),transparent_26rem),#0f0f17]"
             : "aspect-[16/10]",
         )}
         href={`/work/${work.slug}`}
       >
         <Image
           alt={`${work.title} supplied product screenshot`}
-          className={cn(
-            "h-full w-full transition duration-500 group-hover:scale-[1.025]",
-            variant === "featured" ? "object-contain" : "object-cover",
-          )}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
           height={900}
           priority={priority}
           sizes={
