@@ -90,6 +90,13 @@ intentionally empty until real theme products exist. The listing route shows an 
 coming-soon marketplace state with disabled filter controls; the detail route is scaffolded and will
 render real theme entries once supplied.
 
+## Portfolio And Work
+
+Phase 8 adds `src/data/work.ts`, the homepage featured-work section, `/work`, and `/work/[slug]`.
+Portfolio visuals use the supplied screenshots from `public/work/`. Case study narrative fields,
+project types, results, tech stacks, and live links stay visibly marked as `CONTENT TO BE PROVIDED`
+until approved project copy is supplied.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
