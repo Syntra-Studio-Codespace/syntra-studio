@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type MutableRefObject } from "react";
 import { getGsap } from "@/lib/animations/gsap";
 import { useIsTouchDevice } from "@/hooks/useIsTouchDevice";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -8,9 +8,10 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 type HeroTimelineProps = {
   children: React.ReactNode;
   className?: string;
+  externalRef?: MutableRefObject<HTMLElement | null>;
 };
 
-export function HeroTimeline({ children, className }: HeroTimelineProps) {
+export function HeroTimeline({ children, className, externalRef }: HeroTimelineProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
   const isTouchDevice = useIsTouchDevice();
@@ -51,7 +52,16 @@ export function HeroTimeline({ children, className }: HeroTimelineProps) {
   }, [isTouchDevice, reducedMotion]);
 
   return (
-    <section className={className} ref={sectionRef}>
+    <section
+      className={className}
+      ref={(node) => {
+        sectionRef.current = node;
+
+        if (externalRef) {
+          externalRef.current = node;
+        }
+      }}
+    >
       {children}
     </section>
   );
