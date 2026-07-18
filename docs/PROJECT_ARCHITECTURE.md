@@ -97,6 +97,12 @@ Portfolio visuals use the supplied screenshots from `public/work/`. Case study n
 project types, results, tech stacks, and live links stay visibly marked as `CONTENT TO BE PROVIDED`
 until approved project copy is supplied.
 
+## Process Storytelling
+
+Phase 9 adds `src/data/process-steps.ts`, the homepage process section, and `/process`. The process
+experience uses GSAP ScrollTrigger pinning on fine-pointer desktop devices, while touch devices and
+`prefers-reduced-motion: reduce` receive a normal stacked step layout with no pinned scroll.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
