@@ -17,12 +17,18 @@ export function HomeHero() {
     <HeroTimeline className="relative isolate overflow-hidden px-6 pb-16 pt-32 sm:px-10 lg:px-16">
       <div
         aria-hidden
-        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_18%,rgba(59,47,212,0.34),transparent_34rem),radial-gradient(circle_at_74%_24%,rgba(34,211,238,0.16),transparent_30rem),linear-gradient(135deg,rgba(15,15,23,1),rgba(22,22,31,0.96))]"
+        className="hero-ambient-base absolute inset-0 -z-20"
         data-hero-layer="ambient"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(rgba(247,247,251,0.52)_1px,transparent_1px),linear-gradient(90deg,rgba(247,247,251,0.52)_1px,transparent_1px)] [background-size:64px_64px]"
+        className="hero-ambient-mesh absolute inset-0 -z-20"
+        data-hero-layer="ambient"
+      />
+      <div aria-hidden className="hero-grid-drift absolute inset-0 -z-10 opacity-[0.07]" />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,transparent_0%,rgba(15,15,23,0.44)_72%,rgba(15,15,23,0.96)_100%)]"
       />
 
       <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(26rem,0.85fr)]">
