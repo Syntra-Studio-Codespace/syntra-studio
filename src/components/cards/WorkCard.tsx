@@ -22,13 +22,18 @@ export function WorkCard({ work, priority = false, variant = "default" }: WorkCa
         aria-label={`View ${work.title} case study`}
         className={cn(
           "block overflow-hidden bg-brand-charcoal",
-          variant === "featured" ? "aspect-[16/11] lg:aspect-auto" : "aspect-[16/10]",
+          variant === "featured"
+            ? "aspect-[16/11] bg-[radial-gradient(circle_at_50%_0%,rgba(34,211,238,0.08),transparent_26rem),#0f0f17] p-3 lg:aspect-auto lg:p-4"
+            : "aspect-[16/10]",
         )}
         href={`/work/${work.slug}`}
       >
         <Image
           alt={`${work.title} supplied product screenshot`}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+          className={cn(
+            "h-full w-full transition duration-500 group-hover:scale-[1.025]",
+            variant === "featured" ? "object-contain" : "object-cover",
+          )}
           height={900}
           priority={priority}
           sizes={
