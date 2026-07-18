@@ -1,5 +1,6 @@
 import { FadeIn } from "@/components/animations/FadeIn";
 import { CurrencySwitcher } from "@/components/currency/CurrencySwitcher";
+import { BundleDiscountCallout } from "@/components/sections/BundleDiscountCallout";
 import { PaymentMethods } from "@/components/sections/PaymentMethods";
 import { PricingCard } from "@/components/pricing/PricingCard";
 import { globalPricingNotes, pricingGroups, pricingTiers } from "@/data/pricing-tiers";
@@ -30,6 +31,10 @@ export function PricingPageContent() {
           <p>{globalPricingNotes.bundleDiscount}</p>
           <p>{globalPricingNotes.quoteValidity}</p>
           <p>{globalPricingNotes.depositPolicy}</p>
+        </div>
+
+        <div className="mt-10">
+          <BundleDiscountCallout />
         </div>
 
         <div className="mt-16 grid gap-16">

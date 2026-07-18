@@ -5,6 +5,7 @@
 - The `/pricing` page displays accepted payment methods: Stripe, Payoneer, Wise, and Bank Transfer.
 - Bank transfer details are intentionally shown as `CONTENT TO BE PROVIDED - bank account details`.
 - The page states the deposit/refund policy, quote-validity period, taxes/fees note, and manual invoice flow.
+- Any website tier paired with any hosting or maintenance plan receives a 10% bundle discount applied manually on the invoice.
 - CTAs route visitors to `/contact`; there is no live checkout.
 
 ## Manual Process

@@ -27,6 +27,21 @@ export const pricingTierSchema = z.object({
 
 export type PricingTier = z.infer<typeof pricingTierSchema>;
 export type PricingCategory = PricingTier["category"];
+export const websitePricingCategories: PricingCategory[] = [
+  "business",
+  "ngo",
+  "landing-page",
+  "full-stack",
+  "wordpress-site",
+];
+
+export function isWebsitePricingTier(tier: Pick<PricingTier, "category">) {
+  return websitePricingCategories.includes(tier.category);
+}
+
+export function isHostingPricingTier(tier: Pick<PricingTier, "category">) {
+  return tier.category === "hosting";
+}
 
 export const pricingTiers = pricingTierSchema.array().parse([
   {
@@ -309,7 +324,8 @@ export const pricingGroups: Array<{
 export const globalPricingNotes = {
   baseCurrency: "USD",
   supportedCurrencies: ["USD", "PKR", "EUR", "GBP", "CAD", "AUD", "AED", "SAR", "INR"],
-  bundleDiscount: "10% discount when purchasing a website together with a maintenance plan.",
+  bundleDiscount:
+    "10% discount when any website tier is paired with any hosting or maintenance plan.",
   quoteValidity: "All quotations remain valid for 30 calendar days.",
   depositPolicy:
     "50% deposit required before work begins. Deposits are non-refundable once development has commenced. Remaining balance must be paid before final delivery.",

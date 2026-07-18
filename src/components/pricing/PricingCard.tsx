@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { PriceDisplay } from "@/components/pricing/PriceDisplay";
-import type { PricingTier } from "@/data/pricing-tiers";
+import { isHostingPricingTier, isWebsitePricingTier, type PricingTier } from "@/data/pricing-tiers";
 import { cn } from "@/lib/utils/cn";
 
 type PricingCardProps = {
@@ -9,6 +9,8 @@ type PricingCardProps = {
 };
 
 export function PricingCard({ tier }: PricingCardProps) {
+  const bundleEligible = isWebsitePricingTier(tier) || isHostingPricingTier(tier);
+
   return (
     <article
       className={cn(
@@ -48,6 +50,11 @@ export function PricingCard({ tier }: PricingCardProps) {
             NGO Rate
           </span>
         ) : null}
+        {bundleEligible ? (
+          <span className="rounded-full border border-brand-cyan/60 px-3 py-1 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-brand-cyan">
+            Bundle 10%
+          </span>
+        ) : null}
       </div>
 
       <div className="mt-7">
@@ -71,6 +78,14 @@ export function PricingCard({ tier }: PricingCardProps) {
           )}
         >
           {tier.ngoDiscountNote}
+        </p>
+      ) : null}
+
+      {bundleEligible ? (
+        <p className="mt-4 rounded-2xl border border-brand-cyan/25 bg-brand-cyan/10 p-3 text-sm text-brand-offwhite">
+          {isHostingPricingTier(tier)
+            ? "Pair this maintenance plan with any website tier to apply the 10% bundle discount."
+            : "Add any hosting or maintenance plan to this website tier to apply the 10% bundle discount."}
         </p>
       ) : null}
 
