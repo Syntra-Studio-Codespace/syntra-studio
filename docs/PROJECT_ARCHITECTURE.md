@@ -83,6 +83,13 @@ client-side local-currency estimates. USD remains canonical. The currency provid
 ExchangeRate-API open endpoint and falls back gracefully when rates are unavailable. Bank transfer
 details remain a visible `CONTENT TO BE PROVIDED` placeholder.
 
+## WordPress Theme Marketplace
+
+Phase 7 adds the theme data model, `/themes`, and `/themes/[slug]`. `src/data/themes.ts` is
+intentionally empty until real theme products exist. The listing route shows an intentional
+coming-soon marketplace state with disabled filter controls; the detail route is scaffolded and will
+render real theme entries once supplied.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
