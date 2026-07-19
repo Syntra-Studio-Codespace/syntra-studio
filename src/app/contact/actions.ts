@@ -61,7 +61,7 @@ export async function submitProjectInquiry(
   const projectTypeLabel =
     projectTypes.find((type) => type.value === parsed.data.projectType)?.label ??
     parsed.data.projectType;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://syntra.studio";
+  const siteUrl = getPublicSiteUrl();
   const payload = new URLSearchParams({
     name: parsed.data.name,
     email: parsed.data.email,
@@ -111,4 +111,17 @@ export async function submitProjectInquiry(
       message: "The inquiry could not be sent right now. Please try again shortly.",
     };
   }
+}
+
+function getPublicSiteUrl() {
+  const configuredUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.VERCEL_URL ??
+    "https://syntra.studio";
+  const normalizedUrl = configuredUrl.startsWith("http")
+    ? configuredUrl
+    : `https://${configuredUrl}`;
+
+  return normalizedUrl.replace(/\/+$/, "");
 }
