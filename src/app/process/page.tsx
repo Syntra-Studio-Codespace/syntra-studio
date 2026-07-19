@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Process",
   description:
     "Syntra.studio process for shaping, planning, building, launching, and supporting web projects.",
+  alternates: {
+    canonical: "/process",
+  },
 };
 
 export default function ProcessPage() {

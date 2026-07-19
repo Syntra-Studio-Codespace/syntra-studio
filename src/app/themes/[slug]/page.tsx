@@ -27,6 +27,9 @@ export async function generateMetadata({ params }: ThemeDetailPageProps): Promis
   return {
     title: theme.name,
     description: theme.shortDescription,
+    alternates: {
+      canonical: `/themes/${theme.slug}`,
+    },
   };
 }
 

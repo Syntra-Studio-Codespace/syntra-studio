@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Start a project with Syntra.studio for business websites, NGO websites, landing pages, full-stack applications, WordPress sites, hosting, or maintenance.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export const runtime = "nodejs";

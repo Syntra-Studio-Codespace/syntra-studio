@@ -120,47 +120,43 @@ export function Header() {
         </button>
       </div>
 
-      <div
-        aria-hidden={!isMenuOpen}
-        className={cn(
-          "fixed inset-x-0 top-20 z-30 h-[calc(100vh-5rem)] bg-brand-charcoal px-6 py-8 transition duration-300 lg:hidden",
-          isMenuOpen
-            ? "pointer-events-auto translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-4 opacity-0",
-        )}
-        id="mobile-navigation"
-      >
-        <nav aria-label="Mobile navigation" className="flex h-full flex-col">
-          <div className="grid gap-2">
-            {primaryNavigation.map((item) => {
-              const isActive = isActivePath(pathname, item.href);
+      {isMenuOpen ? (
+        <div
+          className="fixed inset-x-0 top-20 z-30 h-[calc(100vh-5rem)] bg-brand-charcoal px-6 py-8 lg:hidden"
+          id="mobile-navigation"
+        >
+          <nav aria-label="Mobile navigation" className="flex h-full flex-col">
+            <div className="grid gap-2">
+              {primaryNavigation.map((item) => {
+                const isActive = isActivePath(pathname, item.href);
 
-              return (
-                <Link
-                  aria-current={isActive ? "page" : undefined}
-                  className={cn(
-                    "flex min-h-14 items-center justify-between border-b border-[color:var(--border-on-dark)] font-heading text-3xl font-semibold text-brand-offwhite transition-colors hover:text-brand-cyan",
-                    isActive && "text-brand-cyan",
-                  )}
-                  href={item.href}
-                  key={item.href}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="mt-auto pt-8">
-            <div className="mb-4">
-              <CurrencySwitcher />
+                return (
+                  <Link
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(
+                      "flex min-h-14 items-center justify-between border-b border-[color:var(--border-on-dark)] font-heading text-3xl font-semibold text-brand-offwhite transition-colors hover:text-brand-cyan",
+                      isActive && "text-brand-cyan",
+                    )}
+                    href={item.href}
+                    key={item.href}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
-            <Button className="w-full" href={siteSettings.startProjectHref} size="large">
-              Start a Project
-            </Button>
-          </div>
-        </nav>
-      </div>
+
+            <div className="mt-auto pt-8">
+              <div className="mb-4">
+                <CurrencySwitcher />
+              </div>
+              <Button className="w-full" href={siteSettings.startProjectHref} size="large">
+                Start a Project
+              </Button>
+            </div>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

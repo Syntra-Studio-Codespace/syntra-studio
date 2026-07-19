@@ -31,6 +31,9 @@ export async function generateMetadata({ params }: WorkDetailPageProps): Promise
   return {
     title: `${work.title} Case Study`,
     description: work.summary,
+    alternates: {
+      canonical: `/work/${work.slug}`,
+    },
   };
 }
 

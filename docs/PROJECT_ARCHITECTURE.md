@@ -124,6 +124,16 @@ services, featured work, pricing, process, testimonials, and final CTA. `HomeFin
 page with invoice-led next steps and routes visitors back to the contact and pricing pages without
 introducing checkout or unsupported business details.
 
+## SEO, Accessibility, And Performance
+
+Phase 13 adds route-level canonical metadata, shared public-site URL resolution for Vercel, a
+generated sitemap, robots metadata, and organization structured data. It also fills previously
+broken internal routes with `/services`, `/services/[slug]`, `/privacy-policy`, and `/terms`, using
+existing typed data and clearly labeled legal placeholders where final copy is not supplied.
+
+The mobile navigation now renders only while open so hidden menu links and controls are not included
+in the keyboard tab order.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.

@@ -1,6 +1,7 @@
 "use server";
 
 import { contactFormSchema, projectTypes } from "@/data/contact-form";
+import { getPublicSiteUrl } from "@/lib/seo/site-url";
 
 export type ContactFormState = {
   status: "idle" | "success" | "error";
@@ -111,17 +112,4 @@ export async function submitProjectInquiry(
       message: "The inquiry could not be sent right now. Please try again shortly.",
     };
   }
-}
-
-function getPublicSiteUrl() {
-  const configuredUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
-    process.env.VERCEL_URL ??
-    "https://syntra.studio";
-  const normalizedUrl = configuredUrl.startsWith("http")
-    ? configuredUrl
-    : `https://${configuredUrl}`;
-
-  return normalizedUrl.replace(/\/+$/, "");
 }

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "About Syntra.studio, a solo web studio building polished websites, applications, WordPress experiences, and maintenance plans.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
