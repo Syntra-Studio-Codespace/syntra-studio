@@ -37,7 +37,7 @@ export const workItems = workSchema.array().parse([
   {
     title: "Vantar",
     slug: "vantar",
-    category: "full-stack",
+    category: "landing-page",
     categoryLabel: "Product / 3D Experience Site",
     summary:
       "A cinematic, scroll-directed product experience for a fictional premium Oxford shoe, built around one persistent 3D model that moves through an editorial story as the page scrolls.",
