@@ -22,7 +22,7 @@ export function ProjectInquiryForm() {
         <input autoComplete="off" id="companyWebsite" name="companyWebsite" tabIndex={-1} />
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <FormField error={state.fieldErrors?.name} label="Name" name="name" required />
         <FormField
           autoComplete="email"
@@ -41,7 +41,7 @@ export function ProjectInquiryForm() {
         name="company"
       />
 
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-3">
         <SelectField
           error={state.fieldErrors?.projectType}
           label="Project type"
@@ -62,8 +62,8 @@ export function ProjectInquiryForm() {
         />
       </div>
 
-      <div className="grid gap-2">
-        <label className="font-heading text-sm font-semibold text-brand-offwhite" htmlFor="message">
+      <div className="grid gap-2.5">
+        <label className={labelClassName} htmlFor="message">
           Project details <span className="text-brand-cyan">*</span>
         </label>
         <textarea
@@ -76,11 +76,11 @@ export function ProjectInquiryForm() {
         <FieldError message={state.fieldErrors?.message} />
       </div>
 
-      <div className="grid gap-2">
-        <label className="group flex cursor-pointer gap-3 rounded-card border border-[color:var(--border-on-dark)] bg-[linear-gradient(135deg,rgba(15,15,23,0.9),rgba(22,22,31,0.86))] p-4 text-sm leading-6 text-[color:var(--text-on-dark-secondary)] transition hover:border-brand-cyan/35 hover:bg-brand-charcoal">
+      <div className="grid gap-2.5">
+        <label className="group flex cursor-pointer gap-3 rounded-2xl border border-white/10 bg-brand-charcoal/80 p-4 text-sm leading-6 text-[color:var(--text-on-dark-secondary)] shadow-[inset_0_1px_0_rgba(247,247,251,0.04)] transition hover:border-brand-cyan/35 hover:bg-[#12121b]">
           <span className="relative mt-1 flex h-5 w-5 shrink-0 items-center justify-center">
             <input
-              className="peer h-5 w-5 appearance-none rounded-md border border-[color:var(--border-on-dark)] bg-brand-charcoal transition checked:border-brand-cyan checked:bg-brand-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+              className="peer h-5 w-5 appearance-none rounded-md border border-white/[0.14] bg-[#0b0b12] shadow-[inset_0_1px_0_rgba(247,247,251,0.05)] transition checked:border-brand-cyan checked:bg-brand-cyan hover:border-brand-cyan/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
               name="consent"
               type="checkbox"
             />
@@ -122,7 +122,7 @@ function FormField({
 }: FormFieldProps) {
   return (
     <div className="grid gap-2">
-      <label className="font-heading text-sm font-semibold text-brand-offwhite" htmlFor={name}>
+      <label className={labelClassName} htmlFor={name}>
         {label} {required ? <span className="text-brand-cyan">*</span> : null}
       </label>
       <input
@@ -151,18 +151,25 @@ type SelectFieldProps = {
 function SelectField({ error, label, name, options }: SelectFieldProps) {
   return (
     <div className="grid gap-2">
-      <label className="font-heading text-sm font-semibold text-brand-offwhite" htmlFor={name}>
+      <label className={labelClassName} htmlFor={name}>
         {label} <span className="text-brand-cyan">*</span>
       </label>
       <div className="relative">
         <select
-          className={fieldClassName(Boolean(error), "appearance-none pr-11")}
+          className={fieldClassName(
+            Boolean(error),
+            "appearance-none pr-11 invalid:text-[color:var(--text-on-dark-secondary)]",
+          )}
           defaultValue=""
           id={name}
           name={name}
           required
         >
-          <option value="" disabled>
+          <option
+            className="bg-brand-charcoal text-[color:var(--text-on-dark-secondary)]"
+            value=""
+            disabled
+          >
             Select one
           </option>
           {options.map((option) => (
@@ -234,12 +241,15 @@ function FieldError({ message }: { message?: string }) {
   return <p className="text-sm text-brand-violet">{message}</p>;
 }
 
+const labelClassName =
+  "font-heading text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-brand-offwhite/85";
+
 function fieldClassName(hasError: boolean, extraClassName?: string) {
   return cn(
-    "min-h-12 w-full rounded-2xl border bg-[linear-gradient(135deg,rgba(15,15,23,0.94),rgba(22,22,31,0.86))] px-4 text-base text-brand-offwhite shadow-[inset_0_1px_0_rgba(247,247,251,0.04)] outline-none transition-[background,border-color,box-shadow,color] placeholder:text-[color:var(--text-on-dark-secondary)] hover:border-brand-cyan/35 focus:border-brand-cyan focus:bg-brand-charcoal focus:shadow-[0_0_0_3px_rgba(34,211,238,0.12),inset_0_1px_0_rgba(247,247,251,0.04)]",
+    "min-h-[3.25rem] w-full rounded-2xl border bg-[rgba(15,15,23,0.82)] px-4 text-[0.95rem] text-brand-offwhite shadow-[inset_0_1px_0_rgba(247,247,251,0.045)] outline-none transition-[background,border-color,box-shadow,color] placeholder:text-[color:var(--text-on-dark-secondary)] hover:border-brand-cyan/30 hover:bg-[#12121b] focus:border-brand-cyan focus:bg-[#11111a] focus:shadow-[0_0_0_3px_rgba(34,211,238,0.11),inset_0_1px_0_rgba(247,247,251,0.06)]",
     hasError
-      ? "border-brand-violet/80 focus:border-brand-violet focus:shadow-[0_0_0_3px_rgba(139,92,246,0.14)]"
-      : "border-[color:var(--border-on-dark)]",
+      ? "border-brand-violet/80 bg-brand-violet/5 focus:border-brand-violet focus:shadow-[0_0_0_3px_rgba(139,92,246,0.14),inset_0_1px_0_rgba(247,247,251,0.05)]"
+      : "border-white/10",
     extraClassName,
   );
 }
