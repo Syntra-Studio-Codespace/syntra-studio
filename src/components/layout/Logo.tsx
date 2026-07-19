@@ -34,14 +34,33 @@ export function Logo({
       className={cn("inline-flex items-center rounded-sm", className)}
       href="/"
     >
-      <Image
-        alt="Syntra.studio"
-        className="h-auto w-auto object-contain"
-        height={isWordmark ? 48 : 56}
-        priority={priority}
-        src={src}
-        width={isWordmark ? 220 : 56}
-      />
+      {isWordmark ? (
+        <span className="relative block h-9 w-40 overflow-hidden sm:w-44">
+          <Image
+            alt="Syntra.studio"
+            className="absolute max-w-none object-contain"
+            height={2048}
+            priority={priority}
+            src={src}
+            style={{
+              height: "15.85rem",
+              left: "-2.42rem",
+              top: "-6.86rem",
+              width: "15.85rem",
+            }}
+            width={2048}
+          />
+        </span>
+      ) : (
+        <Image
+          alt="Syntra.studio"
+          className="h-10 w-10 object-contain"
+          height={56}
+          priority={priority}
+          src={src}
+          width={56}
+        />
+      )}
     </Link>
   );
 }
