@@ -9,16 +9,10 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { HeroTimeline } from "@/components/animations/HeroTimeline";
 import { MagneticButton } from "@/components/animations/MagneticButton";
 import { TextReveal } from "@/components/animations/TextReveal";
-import { usePointerPosition } from "@/hooks/usePointerPosition";
 
 export function HomeHero() {
   const heroRef = useRef<HTMLElement | null>(null);
   const glowRef = useRef<HTMLDivElement>(null);
-  const pointer = usePointerPosition(heroRef);
-  const reactiveX = pointer.isActive ? `${Math.round(pointer.progressX * 100)}%` : "68%";
-  const reactiveY = pointer.isActive ? `${Math.round(pointer.progressY * 100)}%` : "28%";
-  const offsetX = pointer.isActive ? (pointer.progressX - 0.5) * 18 : 0;
-  const offsetY = pointer.isActive ? (pointer.progressY - 0.5) * 18 : 0;
 
   return (
     <HeroTimeline
@@ -30,24 +24,13 @@ export function HomeHero() {
         className="hero-ambient-base absolute inset-0 -z-20"
         data-hero-layer="ambient"
       />
-      <div
-        aria-hidden
-        className="hero-reactive-mesh absolute inset-0 -z-20"
-        data-hero-layer="ambient"
-        style={
-          {
-            "--hero-reactive-x": reactiveX,
-            "--hero-reactive-y": reactiveY,
-            transform: `translate3d(${offsetX}px, ${offsetY}px, 0) scale(1.04)`,
-          } as React.CSSProperties
-        }
+      <CursorGlow
+        className="-z-10 h-[34rem] w-[34rem] bg-brand-cyan/10 opacity-80 mix-blend-screen"
+        containerRef={heroRef}
       />
       <div
         aria-hidden
-        className="hero-grid-reactive absolute inset-0 -z-10 opacity-[0.07]"
-        style={{
-          transform: `translate3d(${offsetX * 0.35}px, ${offsetY * 0.35}px, 0)`,
-        }}
+        className="absolute inset-0 -z-10 opacity-[0.07] [background-image:linear-gradient(rgba(247,247,251,0.52)_1px,transparent_1px),linear-gradient(90deg,rgba(247,247,251,0.52)_1px,transparent_1px)] [background-size:64px_64px]"
       />
       <div
         aria-hidden
