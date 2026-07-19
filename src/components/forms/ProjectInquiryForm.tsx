@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { ArrowRight, LoaderCircle } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, LoaderCircle } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { submitProjectInquiry, type ContactFormState } from "@/app/contact/actions";
 import { budgetRanges, projectTypes, timelineOptions } from "@/data/contact-form";
@@ -16,7 +16,7 @@ export function ProjectInquiryForm() {
   const [state, formAction] = useActionState(submitProjectInquiry, initialContactFormState);
 
   return (
-    <form action={formAction} className="grid gap-5" noValidate>
+    <form action={formAction} className="grid gap-6" noValidate>
       <div className="hidden" aria-hidden>
         <label htmlFor="companyWebsite">Company website</label>
         <input autoComplete="off" id="companyWebsite" name="companyWebsite" tabIndex={-1} />
@@ -62,7 +62,7 @@ export function ProjectInquiryForm() {
         />
       </div>
 
-      <div>
+      <div className="grid gap-2">
         <label className="font-heading text-sm font-semibold text-brand-offwhite" htmlFor="message">
           Project details <span className="text-brand-cyan">*</span>
         </label>
@@ -76,13 +76,21 @@ export function ProjectInquiryForm() {
         <FieldError message={state.fieldErrors?.message} />
       </div>
 
-      <div>
-        <label className="flex gap-3 rounded-card border border-[color:var(--border-on-dark)] bg-brand-charcoal/70 p-4 text-sm leading-6 text-[color:var(--text-on-dark-secondary)]">
-          <input
-            className="mt-1 h-4 w-4 rounded border-[color:var(--border-on-dark)] bg-brand-charcoal text-brand-cyan focus:ring-brand-cyan"
-            name="consent"
-            type="checkbox"
-          />
+      <div className="grid gap-2">
+        <label className="group flex cursor-pointer gap-3 rounded-card border border-[color:var(--border-on-dark)] bg-[linear-gradient(135deg,rgba(15,15,23,0.9),rgba(22,22,31,0.86))] p-4 text-sm leading-6 text-[color:var(--text-on-dark-secondary)] transition hover:border-brand-cyan/35 hover:bg-brand-charcoal">
+          <span className="relative mt-1 flex h-5 w-5 shrink-0 items-center justify-center">
+            <input
+              className="peer h-5 w-5 appearance-none rounded-md border border-[color:var(--border-on-dark)] bg-brand-charcoal transition checked:border-brand-cyan checked:bg-brand-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+              name="consent"
+              type="checkbox"
+            />
+            <Check
+              aria-hidden
+              className="pointer-events-none absolute text-brand-charcoal opacity-0 transition peer-checked:opacity-100"
+              size={14}
+              strokeWidth={3}
+            />
+          </span>
           <span>I agree to be contacted by Syntra.studio about this inquiry.</span>
         </label>
         <FieldError message={state.fieldErrors?.consent} />
@@ -113,7 +121,7 @@ function FormField({
   type = "text",
 }: FormFieldProps) {
   return (
-    <div>
+    <div className="grid gap-2">
       <label className="font-heading text-sm font-semibold text-brand-offwhite" htmlFor={name}>
         {label} {required ? <span className="text-brand-cyan">*</span> : null}
       </label>
@@ -142,26 +150,37 @@ type SelectFieldProps = {
 
 function SelectField({ error, label, name, options }: SelectFieldProps) {
   return (
-    <div>
+    <div className="grid gap-2">
       <label className="font-heading text-sm font-semibold text-brand-offwhite" htmlFor={name}>
         {label} <span className="text-brand-cyan">*</span>
       </label>
-      <select
-        className={fieldClassName(Boolean(error))}
-        defaultValue=""
-        id={name}
-        name={name}
-        required
-      >
-        <option value="" disabled>
-          Select one
-        </option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
+      <div className="relative">
+        <select
+          className={fieldClassName(Boolean(error), "appearance-none pr-11")}
+          defaultValue=""
+          id={name}
+          name={name}
+          required
+        >
+          <option value="" disabled>
+            Select one
           </option>
-        ))}
-      </select>
+          {options.map((option) => (
+            <option
+              className="bg-brand-charcoal text-brand-offwhite"
+              key={option.value}
+              value={option.value}
+            >
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <ChevronDown
+          aria-hidden
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-brand-cyan"
+          size={18}
+        />
+      </div>
       <FieldError message={error} />
     </div>
   );
@@ -212,13 +231,15 @@ function FieldError({ message }: { message?: string }) {
     return null;
   }
 
-  return <p className="mt-2 text-sm text-brand-violet">{message}</p>;
+  return <p className="text-sm text-brand-violet">{message}</p>;
 }
 
 function fieldClassName(hasError: boolean, extraClassName?: string) {
   return cn(
-    "mt-2 min-h-12 w-full rounded-2xl border bg-brand-charcoal/72 px-4 text-base text-brand-offwhite outline-none transition placeholder:text-[color:var(--text-on-dark-secondary)] focus:border-brand-cyan focus:ring-2 focus:ring-brand-cyan/20",
-    hasError ? "border-brand-violet" : "border-[color:var(--border-on-dark)]",
+    "min-h-12 w-full rounded-2xl border bg-[linear-gradient(135deg,rgba(15,15,23,0.94),rgba(22,22,31,0.86))] px-4 text-base text-brand-offwhite shadow-[inset_0_1px_0_rgba(247,247,251,0.04)] outline-none transition-[background,border-color,box-shadow,color] placeholder:text-[color:var(--text-on-dark-secondary)] hover:border-brand-cyan/35 focus:border-brand-cyan focus:bg-brand-charcoal focus:shadow-[0_0_0_3px_rgba(34,211,238,0.12),inset_0_1px_0_rgba(247,247,251,0.04)]",
+    hasError
+      ? "border-brand-violet/80 focus:border-brand-violet focus:shadow-[0_0_0_3px_rgba(139,92,246,0.14)]"
+      : "border-[color:var(--border-on-dark)]",
     extraClassName,
   );
 }
