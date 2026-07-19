@@ -103,6 +103,13 @@ Phase 9 adds `src/data/process-steps.ts`, the homepage process section, and `/pr
 experience uses GSAP ScrollTrigger pinning on fine-pointer desktop devices, while touch devices and
 `prefers-reduced-motion: reduce` receive a normal stacked step layout with no pinned scroll.
 
+## About, Trust, And Testimonials
+
+Phase 10 adds `src/data/trust-signals.ts`, `src/data/testimonials.ts`, the homepage trust strip,
+homepage testimonial section, and `/about`. Testimonials and trust items stay clearly labeled as
+placeholders where real client proof has not been supplied, and team-member content is intentionally
+omitted because Syntra.studio is currently a solo company.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
