@@ -110,6 +110,13 @@ homepage testimonial section, and `/about`. Testimonials and trust items stay cl
 placeholders where real client proof has not been supplied, and team-member content is intentionally
 omitted because Syntra.studio is currently a solo company.
 
+## Contact Form
+
+Phase 11 adds `/contact`, `src/data/contact-form.ts`, and a shared project inquiry form. The form
+uses client-side pending/success/error states, server-side Zod validation, a honeypot spam field, and
+a FormSubmit server-action handoff. Delivery requires `CONTACT_FORM_EMAIL` at runtime; when it is not
+configured, the form reports that clearly instead of pretending an email was sent.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.
