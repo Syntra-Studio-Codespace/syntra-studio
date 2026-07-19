@@ -117,6 +117,13 @@ uses client-side pending/success/error states, server-side Zod validation, a hon
 a FormSubmit server-action handoff. Delivery requires `CONTACT_FORM_EMAIL` at runtime; when it is not
 configured, the form reports that clearly instead of pretending an email was sent.
 
+## Final Homepage Assembly
+
+Phase 12 connects the completed homepage sections into a finished narrative flow: hero, trust,
+services, featured work, pricing, process, testimonials, and final CTA. `HomeFinalCta` closes the
+page with invoice-led next steps and routes visitors back to the contact and pricing pages without
+introducing checkout or unsupported business details.
+
 ## Accessibility Baseline
 
 - Skip-to-content link is present in the root layout.

@@ -1,5 +1,6 @@
 import { HomeHero } from "@/components/sections/HomeHero";
 import { HomeFeaturedWork } from "@/components/sections/HomeFeaturedWork";
+import { HomeFinalCta } from "@/components/sections/HomeFinalCta";
 import { HomeServices } from "@/components/sections/HomeServices";
 import { PricingPreview } from "@/components/sections/PricingPreview";
 import { ProcessStory } from "@/components/sections/ProcessStory";
@@ -16,6 +17,7 @@ export default function Home() {
       <PricingPreview />
       <ProcessStory />
       <TestimonialsSection />
+      <HomeFinalCta />
     </main>
   );
 }

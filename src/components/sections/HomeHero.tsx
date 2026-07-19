@@ -109,7 +109,8 @@ export function HomeHero() {
 
       <div className="mx-auto mt-6 max-w-7xl border-t border-[color:var(--border-on-dark)] pt-6">
         <p className="font-heading text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--text-on-dark-secondary)]">
-          Next: services, pricing, work, and process sections arrive in later approved phases.
+          Built for founders, small teams, nonprofits, and operators who need the web to feel
+          considered from first impression to final handoff.
         </p>
       </div>
     </HeroTimeline>
