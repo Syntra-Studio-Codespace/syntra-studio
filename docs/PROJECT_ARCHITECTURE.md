@@ -71,9 +71,9 @@ with Next Image.
 ## Services Section
 
 Phase 5 adds `src/data/services.ts` and the homepage `HomeServices` section. Service cards link to
-future service detail routes but do not create those routes yet. The NGO card uses a visible
-`NGO Rate` badge and 20% discount language from the pricing source while keeping the quality
-positioning equal to the business website service.
+service detail routes created in Phase 13. The NGO card uses a visible `NGO Rate` badge and 20%
+discount language from the pricing source while keeping the quality positioning equal to the
+business website service.
 
 ## Pricing And Payments
 
@@ -133,6 +133,12 @@ existing typed data and clearly labeled legal placeholders where final copy is n
 
 The mobile navigation now renders only while open so hidden menu links and controls are not included
 in the keyboard tab order.
+
+## Final Quality Assurance
+
+Phase 14 adds a custom `not-found` page and `docs/CONTENT_GUIDE.md`. The content guide documents how
+to update case studies, pricing, services, future WordPress themes, testimonials, contact details,
+and legal copy without changing the application structure or inventing unapproved information.
 
 ## Accessibility Baseline
 
